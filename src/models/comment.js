@@ -19,8 +19,14 @@ const comments_Schema= new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         refPath: 'onModel'
-    }
+    },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment',
+        }
+    ]
 },{timestamps:true});
 
-const Comments=mongoose.model("Comment",comments_Schema);
-export default Comment;
+const Comment =mongoose.model("Comment",comments_Schema);
+export default Comment ;
